@@ -1,7 +1,10 @@
 pipeline {
   agent any
-  tools { jdk 'JDK17'; maven 'Maven3' }
-  triggers { pollSCM('H/2 * * * *') } // webhook still active
+
+  triggers {
+    githubPush()                 // fire instantly on GitHub webhooks
+    pollSCM('H/2 * * * *')       // safety net every 2 minutes
+  }
 
   environment {
     DOCKER_IMAGE = 'docker.io/vestersly/webapp'
