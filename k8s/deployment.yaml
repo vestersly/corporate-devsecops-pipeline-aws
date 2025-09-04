@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: webapp
-          image: docker.io/YOUR_DOCKERHUB_USER/webapp:IMAGE_TAG
+          image: docker.io/vestersly/webapp:IMAGE_TAG
           ports:
             - containerPort: 8080
           readinessProbe:
